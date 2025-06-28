@@ -217,7 +217,7 @@ SELECT * FROM trace;
 - Test image upload (OCR simulation)
 - Verify results are logged in database
 
-## 🔍 Web Service Operations
+## Web Service Operations
 
 ### calculateFromString
 - **Input**: Mathematical expression string (e.g., "2+3*4")
