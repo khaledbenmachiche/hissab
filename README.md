@@ -27,8 +27,6 @@ hissab-app/
 ├── docker-compose.yml         # Docker services configuration
 ├── database/
 │   └── init.sql              # MySQL database initialization
-├── docker/
-│   └── glassfish/            # GlassFish configuration
 ├── hissab-ejb/               # EJB Module
 │   ├── pom.xml
 │   └── src/main/
