@@ -76,15 +76,15 @@ hissab-app/
 
 ### Step 1: Clone and Build the Project
 
+##### Build all modules
 ```bash
-# Build all modules
 mvn clean compile
 ```
 
 ### Step 2: Download MySQL JDBC Driver
 
+##### Download MySQL Connector/J
 ```bash
-# Download MySQL Connector/J
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.33.tar.gz
 tar -xzf mysql-connector-java-8.0.33.tar.gz
 cp mysql-connector-java-8.0.33/mysql-connector-java-8.0.33.jar /opt/glassfish
@@ -92,31 +92,31 @@ cp mysql-connector-java-8.0.33/mysql-connector-java-8.0.33.jar /opt/glassfish
 
 ### Step 3: Start Docker Services
 
-# Start MySQL and GlassFish containers
+##### Start MySQL and GlassFish containers
 ```bash
 docker-compose up -d
 ```
 
-# Check services status
+##### Check services status
 ```bash
 docker-compose ps
 ```
 
-# View logs
+##### View logs
 ```bash
 docker-compose logs -f
 ```
 
 ### Step 4: Build and Package Applications
 
-# Build EJB module
+##### Build EJB module
 ```bash
 cd hissab-ejb
 mvn clean package
 cd ..
 ```
 
-# Build Web module
+##### Build Web module
 ```bash
 cd hissab-web
 mvn clean package
@@ -161,35 +161,35 @@ cd ..
 
 ### Step 6: Verify Web Service
 
-# Check WSDL availability
+##### Check WSDL availability
 ```bash
 curl http://localhost:8085/hissab/HissabService?wsdl
 ```
 
-# Test health check (if WSDL is available)
-# This will require a SOAP client or tool like SoapUI
+##### Test health check (if WSDL is available)
+##### This will require a SOAP client or tool like SoapUI
 
 ### Step 7: Generate Client Stubs and Run GUI
 
-# Navigate to client module
+##### Navigate to client module
 ```bash
 cd hissab-client
 ```
-# Generate SOAP client stubs (after web service is deployed)
+##### Generate SOAP client stubs (after web service is deployed)
 ```bash
 mvn jaxws:wsimport
 ```
 
-# Build client application
+##### Build client application
 ```bash
 mvn clean compile
 ```
 
-# Run the GUI client
+##### Run the GUI client
 ```bash
 mvn exec:java -Dexec.mainClass="com.hissab.client.HissabClientGUI"
 ```
-# Or create executable JAR
+##### Or create executable JAR
 ```bash
 mvn package
 java -jar target/hissab-client-1.0-SNAPSHOT-jar-with-dependencies.jar
@@ -198,11 +198,11 @@ java -jar target/hissab-client-1.0-SNAPSHOT-jar-with-dependencies.jar
 ## Testing the Application
 
 ### 1. Database Testing:
-# Connect to MySQL container
+##### Connect to MySQL container
 ```bash
 docker exec -it hissab-mysql mysql -u hissab_user -p hissab_db
 ```
-# Check initial data
+##### Check initial data
 ```sql
 SELECT * FROM trace;
 ```
