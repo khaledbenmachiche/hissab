@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="https://jakarta.ee/xml/ns/jakartaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
+             https://jakarta.ee/xml/ns/jakartaee/application_10.xsd"
+             version="10">
+             
+    <application-name>hissab-app</application-name>
+    <description>HISSAB Math Learning Application for GlassFish 7</description>
+    
+    <module>
+        <ejb>hissab-ejb-1.0-SNAPSHOT.jar</ejb>
+    </module>
+    
+    <module>
+        <web>
+            <web-uri>hissab-web-1.0-SNAPSHOT.war</web-uri>
+            <context-root>/hissab</context-root>
+        </web>
+    </module>
+    
+    <library-directory>lib</library-directory>
+</application>

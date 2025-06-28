@@ -1,0 +1,50 @@
+services:
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: hissab-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: hissab_db
+      MYSQL_USER: hissab_user
+      MYSQL_PASSWORD: hissab_password
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - hissab-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "hissab_user", "-phissab_password"]
+      timeout: 20s
+      retries: 10
+
+  # phpMyAdmin for database management (optional)
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    container_name: hissab-phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - "8083:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: hissab_user
+      PMA_PASSWORD: hissab_password
+      MYSQL_ROOT_PASSWORD: root_password
+    networks:
+      - hissab-network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  hissab-network:
+    driver: bridge

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HISSAB - Math Learning Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .service-info {
+            background-color: #e8f4fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .endpoint {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .status {
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .status.running {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        ul {
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 HISSAB Math Learning Application</h1>
+        
+        <div class="status running">
+            <strong>✅ Web Service is Running</strong>
+        </div>
+        
+        <div class="service-info">
+            <h2>SOAP Web Service Information</h2>
+            <p>HISSAB provides SOAP web services for mathematical expression evaluation and OCR processing.</p>
+            
+            <h3>Service Endpoints:</h3>
+            <div class="endpoint">
+                <strong>WSDL:</strong> <a href="HissabService?wsdl" target="_blank">http://localhost:8080/hissab-web/HissabService?wsdl</a>
+            </div>
+            <div class="endpoint">
+                <strong>Service URL:</strong> http://localhost:8080/hissab-web/HissabService
+            </div>
+        </div>
+        
+        <div class="service-info">
+            <h3>Available Operations:</h3>
+            <ul>
+                <li><strong>calculateFromString(String expression)</strong><br>
+                    Evaluates mathematical expressions like "2+3*4", "10-5", "(2+3)*4"</li>
+                <li><strong>calculateFromImage(byte[] image)</strong><br>
+                    Simulates OCR processing and evaluates extracted expressions</li>
+                <li><strong>healthCheck()</strong><br>
+                    Returns service health status</li>
+            </ul>
+        </div>
+        
+        <div class="service-info">
+            <h3>How to Use:</h3>
+            <ul>
+                <li><strong>Desktop Client:</strong> Run the Swing GUI application from the hissab-client module</li>
+                <li><strong>SOAP Testing:</strong> Use SoapUI or similar tools with the WSDL URL above</li>
+                <li><strong>Integration:</strong> Generate client stubs using wsimport and the WSDL</li>
+            </ul>
+        </div>
+        
+        <div class="service-info">
+            <h3>Database Access:</h3>
+            <ul>
+                <li><strong>phpMyAdmin:</strong> <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></li>
+                <li><strong>Database:</strong> hissab_db</li>
+                <li><strong>Table:</strong> trace (logs all calculations)</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>HISSAB Math Learning Application v1.0</p>
+            <p>Java EE Application with EJBs, SOAP Web Services, and MySQL Database</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simple JavaScript to test if the service is responsive
+        document.addEventListener('DOMContentLoaded', function() {
+            // You could add AJAX calls here to test service availability
+            console.log('HISSAB Web Service Interface Loaded');
+        });
+    </script>
+</body>
+</html>

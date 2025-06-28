@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" 
+    "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<glassfish-web-app>
+    <context-root>/hissab</context-root>
+    
+    <!-- Resource references for database -->
+    <resource-ref>
+        <res-ref-name>jdbc/hissabDS</res-ref-name>
+        <jndi-name>jdbc/hissabDS</jndi-name>
+    </resource-ref>
+    
+    <!-- EJB references -->
+    <ejb-ref>
+        <ejb-ref-name>ejb/CalculEJB</ejb-ref-name>
+        <jndi-name>java:app/hissab-ejb/CalculEJB</jndi-name>
+    </ejb-ref>
+    
+    <ejb-ref>
+        <ejb-ref-name>ejb/TraceEJB</ejb-ref-name>
+        <jndi-name>java:app/hissab-ejb/TraceEJB</jndi-name>
+    </ejb-ref>
+    
+    <!-- Class loader delegation -->
+    <class-loader delegate="true"/>
+    
+    <!-- Keep a generation of JSP files -->
+    <jsp-config>
+        <property name="keepgenerated" value="true"/>
+    </jsp-config>
+</glassfish-web-app>
