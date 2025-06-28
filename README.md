@@ -83,7 +83,7 @@ mvn clean compile
 
 ### Step 2: Download MySQL JDBC Driver
 
-##### Download MySQL Connector/J
+##### Download MySQL Connector
 ```bash
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.33.tar.gz
 tar -xzf mysql-connector-java-8.0.33.tar.gz
