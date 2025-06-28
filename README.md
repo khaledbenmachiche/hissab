@@ -92,29 +92,36 @@ cp mysql-connector-java-8.0.33/mysql-connector-java-8.0.33.jar /opt/glassfish
 
 ### Step 3: Start Docker Services
 
-```bash
 # Start MySQL and GlassFish containers
+```bash
 docker-compose up -d
+```
 
 # Check services status
+```bash
 docker-compose ps
+```
 
 # View logs
+```bash
 docker-compose logs -f
 ```
 
 ### Step 4: Build and Package Applications
 
-```bash
 # Build EJB module
+```bash
 cd hissab-ejb
 mvn clean package
 cd ..
+```
 
 # Build Web module
+```bash
 cd hissab-web
 mvn clean package
 cd ..
+```
 
 
 ### Step 5: Configure GlassFish
@@ -154,30 +161,36 @@ cd ..
 
 ### Step 6: Verify Web Service
 
-```bash
 # Check WSDL availability
+```bash
 curl http://localhost:8085/hissab/HissabService?wsdl
+```
 
 # Test health check (if WSDL is available)
 # This will require a SOAP client or tool like SoapUI
-```
 
 ### Step 7: Generate Client Stubs and Run GUI
 
-```bash
 # Navigate to client module
+```bash
 cd hissab-client
-
+```
 # Generate SOAP client stubs (after web service is deployed)
+```bash
 mvn jaxws:wsimport
+```
 
 # Build client application
+```bash
 mvn clean compile
+```
 
 # Run the GUI client
+```bash
 mvn exec:java -Dexec.mainClass="com.hissab.client.HissabClientGUI"
-
+```
 # Or create executable JAR
+```bash
 mvn package
 java -jar target/hissab-client-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
@@ -185,11 +198,12 @@ java -jar target/hissab-client-1.0-SNAPSHOT-jar-with-dependencies.jar
 ## Testing the Application
 
 ### 1. Database Testing:
-```bash
 # Connect to MySQL container
+```bash
 docker exec -it hissab-mysql mysql -u hissab_user -p hissab_db
-
+```
 # Check initial data
+```sql
 SELECT * FROM trace;
 ```
 
@@ -237,6 +251,3 @@ CREATE TABLE trace (
 - `web.xml`: Web application configuration
 - `docker-compose.yml`: Multi-container Docker setup
 - `init.sql`: Database initialization script
-
-
-# hissab
