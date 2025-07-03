@@ -1,4 +1,5 @@
 # HISSAB
+HISSAB is a Java EE application that uses a component-based architecture with EJBs and SOAP web services, deployed on GlassFish with MySQL database support.
 
 ## Architecture
 
