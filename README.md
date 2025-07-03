@@ -12,7 +12,7 @@ HISSAB is a Java EE application that uses a component-based architecture with EJ
 
 ### Key Features:
 - Mathematical expression evaluation (e.g., "2+3*4")
-- Simulated OCR processing for image-based math problems
+- OCR processing for image-based math problems
 - Calculation history logging with timestamps
 - SOAP web service API
 - Desktop GUI client
