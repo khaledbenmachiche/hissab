@@ -1,7 +1,5 @@
 # HISSAB
 
-HISSAB is a Java EE application designed to help primary school children learn mathematics by evaluating arithmetic expressions. The application uses a component-based architecture with EJBs and SOAP web services, deployed on GlassFish with MySQL database support.
-
 ## Architecture
 
 ### Components:
